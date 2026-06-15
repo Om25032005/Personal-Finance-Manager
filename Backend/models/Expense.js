@@ -25,6 +25,7 @@ const expenseSchema = new mongoose.Schema(
           'Medical',
           'Rent',
           'Utilities',
+          'Investments',
           'Others'
         ],
         message: '{VALUE} is not a valid category'

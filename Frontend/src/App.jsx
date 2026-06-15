@@ -15,6 +15,7 @@ import ResetPassword from './pages/Auth/ResetPassword';
 
 // Dashboard Pages
 import Dashboard from './pages/Dashboard';
+import Analytics from './pages/Analytics';
 import Transactions from './pages/Transactions';
 import IncomeExpense from './pages/IncomeExpense';
 import Budgets from './pages/Budgets';
@@ -28,14 +29,14 @@ const DashboardLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="flex h-screen overflow-hidden bg-dark-950">
+    <div className="flex h-screen overflow-hidden bg-slate-50 dark:bg-dark-950">
       <Sidebar isOpen={sidebarOpen} toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
       
       <div className="flex-1 flex flex-col overflow-hidden relative">
         <Navbar toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
         
         {/* Main Content Area */}
-        <main className="flex-1 overflow-y-auto flex flex-col bg-slate-950/20">
+        <main className="flex-1 overflow-y-auto flex flex-col bg-slate-100/30 dark:bg-slate-950/20">
           <Outlet />
         </main>
       </div>
@@ -68,6 +69,7 @@ function App() {
               }
             >
               <Route index element={<Dashboard />} />
+              <Route path="analytics" element={<Analytics />} />
               <Route path="transactions" element={<Transactions />} />
               <Route path="income-expense" element={<IncomeExpense />} />
               <Route path="budgets" element={<Budgets />} />

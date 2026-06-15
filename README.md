@@ -90,10 +90,9 @@ npm run dev
 ```
 
 ### 2. Seed Mock Database Data
-To instantly populate the database with a test user (`test@test.com` / `password123`) and realistic income/expense logs for the current month:
+To instantly populate the database with a test user (`test@test.com` / `password123`) and a rich 6-month historical suite of income/expense records (perfect for testing dashboard charts):
 ```bash
-npm run seed
-# or: node scripts/seed.js
+node scripts/seedAnalytics.js
 ```
 
 ### 3. Configure Frontend
@@ -116,43 +115,52 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 * `PUT /api/auth/resetpassword/:resettoken` - Reset password using validation token
 * `GET /api/auth/me` - Fetch details for current authenticated session
 
-### 2. Income Ledger
+### 2. Advanced Analytics
+* `GET /api/analytics/dashboard` - Detailed KPIs overview, percentage deltas, mini trend data arrays, and health ratings
+* `GET /api/analytics/monthly-income-expense` - Combined 6-month historical income vs expense chart coordinates
+* `GET /api/analytics/expense-distribution` - Expense breakdown by category sorted highest to lowest
+* `GET /api/analytics/budget-utilization` - Current month allocated budget vs actual spent amounts
+* `GET /api/analytics/savings-trend` - Savings rate percentages and savings growth over time
+* `GET /api/analytics/income-sources` - Income source allocations
+* `GET /api/analytics/financial-health` - Financial health rating scorecard matrix
+
+### 3. Income Ledger
 * `GET /api/income` - Retrieve user income logs
 * `POST /api/income` - Log a new income item
 * `PUT /api/income/:id` - Update income record details
 * `DELETE /api/income/:id` - Remove income record from DB
 
-### 3. Expense Ledger
+### 4. Expense Ledger
 * `GET /api/expense` - Retrieve user expense logs
 * `POST /api/expense` - Log a new expense (triggers budget threshold comparisons)
 * `PUT /api/expense/:id` - Update expense details
 * `DELETE /api/expense/:id` - Remove expense record
 
-### 4. Budgets
+### 5. Budgets
 * `GET /api/budget` - List active budgets
 * `POST /api/budget` - Create or update monthly category budget
 * `DELETE /api/budget/:id` - Delete budget ceiling
 * `GET /api/budget/status/:month` - Get utilization stats percentage for a month (`YYYY-MM`)
 
-### 5. Savings Goals
+### 6. Savings Goals
 * `GET /api/goal` - List active goals
 * `POST /api/goal` - Establish a new target milestones
 * `PUT /api/goal/:id` - Update goal values (triggers congratulations emails if target met)
 * `DELETE /api/goal/:id` - Delete milestone
 
-### 6. Transactions Feed
+### 7. Transactions Feed
 * `GET /api/transactions` - Returns unified, paginated, sorted list of income + expenses
   * *Query Filters*: `type` (all/income/expense), `category`, `startDate`, `endDate`, `search` (description match), `page`, `limit`
 
-### 7. Statements & Exports
+### 8. Statements & Exports
 * `GET /api/reports/summary/:month` - JSON monthly statistics summary
 * `GET /api/reports/export/pdf/:month` - Stream generated PDF statement download
 * `GET /api/reports/export/excel/:month` - Stream generated Excel spreadsheet download
 
-### 8. AI Advisor
+### 9. AI Advisor
 * `GET /api/ai/insights/:month` - Compile financial recommendations (analyzes savings-rates, budget breaches, high-expense category weights)
 
-### 9. Profile
+### 10. Profile
 * `PUT /api/profile` - Update name/email
 * `PUT /api/profile/password` - Update password
 * `POST /api/profile/avatar` - Upload profile image file (`Multer` processed)

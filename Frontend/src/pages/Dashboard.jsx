@@ -96,8 +96,8 @@ const Dashboard = () => {
       {/* Page Title & Month banner */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-slate-100">Financial Performance</h1>
-          <p className="text-slate-400 text-sm">Real-time health overview for {currentMonth}</p>
+          <h1 className="text-2xl font-bold text-slate-800 dark:text-slate-100">Financial Performance</h1>
+          <p className="text-slate-500 dark:text-slate-400 text-sm">Real-time health overview for {currentMonth}</p>
         </div>
       </div>
 
@@ -121,8 +121,8 @@ const Dashboard = () => {
         <div className="glass-card p-5 relative overflow-hidden flex flex-col justify-between min-h-[125px]">
           <div className="flex justify-between items-start">
             <div>
-              <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Total Income</span>
-              <h3 className="text-2xl font-extrabold text-slate-100 mt-1.5">${totalIncome.toLocaleString()}</h3>
+              <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Total Income</span>
+              <h3 className="text-2xl font-extrabold text-slate-800 dark:text-slate-100 mt-1.5">${totalIncome.toLocaleString()}</h3>
             </div>
             <div className="p-3 bg-emerald-500/10 text-emerald-400 rounded-xl">
               <TrendingUp className="w-5 h-5" />
@@ -137,8 +137,8 @@ const Dashboard = () => {
         <div className="glass-card p-5 relative overflow-hidden flex flex-col justify-between min-h-[125px]">
           <div className="flex justify-between items-start">
             <div>
-              <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Total Expenses</span>
-              <h3 className="text-2xl font-extrabold text-slate-100 mt-1.5">${totalExpense.toLocaleString()}</h3>
+              <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Total Expenses</span>
+              <h3 className="text-2xl font-extrabold text-slate-800 dark:text-slate-100 mt-1.5">${totalExpense.toLocaleString()}</h3>
             </div>
             <div className="p-3 bg-rose-500/10 text-rose-400 rounded-xl">
               <TrendingDown className="w-5 h-5" />
@@ -153,7 +153,7 @@ const Dashboard = () => {
         <div className="glass-card p-5 relative overflow-hidden flex flex-col justify-between min-h-[125px]">
           <div className="flex justify-between items-start">
             <div>
-              <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Net Savings</span>
+              <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Net Savings</span>
               <h3 className={`text-2xl font-extrabold mt-1.5 ${netSavings >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
                 {netSavings < 0 ? '-' : ''}${Math.abs(netSavings).toLocaleString()}
               </h3>
@@ -162,7 +162,7 @@ const Dashboard = () => {
               <Wallet className="w-5 h-5" />
             </div>
           </div>
-          <div className="text-xs text-slate-400 font-medium mt-2">
+          <div className="text-xs text-slate-500 dark:text-slate-400 font-medium mt-2">
             Savings Rate: <span className={`font-semibold ${savingsRate >= 20 ? 'text-emerald-400' : 'text-amber-400'}`}>{savingsRate.toFixed(1)}%</span>
           </div>
         </div>
@@ -171,8 +171,8 @@ const Dashboard = () => {
         <div className="glass-card p-5 relative overflow-hidden flex flex-col justify-between min-h-[125px]">
           <div className="flex justify-between items-start">
             <div>
-              <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Active Budgets</span>
-              <h3 className="text-2xl font-extrabold text-slate-100 mt-1.5">
+              <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Active Budgets</span>
+              <h3 className="text-2xl font-extrabold text-slate-800 dark:text-slate-100 mt-1.5">
                 {budgets.length}
               </h3>
             </div>
@@ -180,7 +180,7 @@ const Dashboard = () => {
               <Calendar className="w-5 h-5" />
             </div>
           </div>
-          <div className="text-xs text-slate-400 font-medium mt-2">
+          <div className="text-xs text-slate-500 dark:text-slate-400 font-medium mt-2">
             Exceeded targets: <span className="font-semibold text-rose-400">{activeExceededBudgets.length}</span>
           </div>
         </div>
@@ -190,10 +190,10 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Income vs Expense Bar chart */}
         <div className="glass-panel p-6 rounded-2xl lg:col-span-7 flex flex-col">
-          <h3 className="text-base font-semibold text-slate-200 mb-4">Cash Inflow vs Outflow</h3>
+          <h3 className="text-base font-semibold text-slate-800 dark:text-slate-200 mb-4">Cash Inflow vs Outflow</h3>
           <div className="h-72 w-full flex-1">
             {totalIncome === 0 && totalExpense === 0 ? (
-              <div className="h-full flex items-center justify-center text-slate-500 text-sm">
+              <div className="h-full flex items-center justify-center text-slate-400 dark:text-slate-500 text-sm">
                 No financial transactions logged for this month.
               </div>
             ) : (
@@ -216,10 +216,10 @@ const Dashboard = () => {
 
         {/* Expense distribution pie chart */}
         <div className="glass-panel p-6 rounded-2xl lg:col-span-5 flex flex-col">
-          <h3 className="text-base font-semibold text-slate-200 mb-4">Expense Breakout</h3>
+          <h3 className="text-base font-semibold text-slate-800 dark:text-slate-200 mb-4">Expense Breakout</h3>
           <div className="h-72 w-full flex-1 relative flex items-center justify-center">
             {pieData.length === 0 ? (
-              <div className="text-slate-500 text-sm">No expenses logged.</div>
+              <div className="text-slate-400 dark:text-slate-500 text-sm">No expenses logged.</div>
             ) : (
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
@@ -231,6 +231,7 @@ const Dashboard = () => {
                     outerRadius={90}
                     paddingAngle={3}
                     dataKey="value"
+                    label={({ name, percent }) => `${name} (${(percent * 100).toFixed(0)}%)`}
                   >
                     {pieData.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
@@ -253,10 +254,10 @@ const Dashboard = () => {
         {/* Recent Transactions List */}
         <div className="glass-panel p-6 rounded-2xl lg:col-span-7 flex flex-col">
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-base font-semibold text-slate-200">Recent Transactions</h3>
+            <h3 className="text-base font-semibold text-slate-800 dark:text-slate-200">Recent Transactions</h3>
             <Link
               to="/transactions"
-              className="text-xs font-semibold text-brand-400 hover:text-brand-300 flex items-center gap-1 transition-colors"
+              className="text-xs font-semibold text-brand-500 dark:text-brand-400 hover:text-brand-600 dark:hover:text-brand-300 flex items-center gap-1 transition-colors"
             >
               View All <ArrowRight className="w-3.5 h-3.5" />
             </Link>
@@ -264,29 +265,29 @@ const Dashboard = () => {
           
           <div className="flex-1 overflow-x-auto">
             {recentTransactions.length === 0 ? (
-              <div className="h-32 flex items-center justify-center text-slate-500 text-sm">
+              <div className="h-32 flex items-center justify-center text-slate-400 dark:text-slate-500 text-sm">
                 No transactions yet. Add your first transaction!
               </div>
             ) : (
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-slate-800 text-slate-400 text-xs uppercase tracking-wider font-semibold">
+                  <tr className="border-b border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 text-xs uppercase tracking-wider font-semibold">
                     <th className="pb-3">Source/Category</th>
                     <th className="pb-3">Date</th>
                     <th className="pb-3 text-right">Amount</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800 text-sm">
+                <tbody className="divide-y divide-slate-200 dark:divide-slate-800 text-sm">
                   {recentTransactions.map((tx) => (
-                    <tr key={tx._id} className="hover:bg-slate-800/10 transition-colors">
+                    <tr key={tx._id} className="hover:bg-slate-100 dark:hover:bg-slate-800/10 transition-colors">
                       <td className="py-3.5 flex flex-col">
-                        <span className="font-semibold text-slate-200">{tx.displayCategory}</span>
-                        <span className="text-xs text-slate-500 truncate max-w-[200px]">{tx.description || '-'}</span>
+                        <span className="font-semibold text-slate-800 dark:text-slate-200">{tx.displayCategory}</span>
+                        <span className="text-xs text-slate-500 dark:text-slate-400 truncate max-w-[200px]">{tx.description || '-'}</span>
                       </td>
-                      <td className="py-3.5 text-slate-400 font-medium">
+                      <td className="py-3.5 text-slate-500 dark:text-slate-400 font-medium">
                         {new Date(tx.date).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
                       </td>
-                      <td className={`py-3.5 text-right font-bold ${tx.type === 'income' ? 'text-emerald-400' : 'text-rose-400'}`}>
+                      <td className={`py-3.5 text-right font-bold ${tx.type === 'income' ? 'text-emerald-500 dark:text-emerald-400' : 'text-rose-500 dark:text-rose-400'}`}>
                         {tx.type === 'income' ? '+' : '-'}${tx.amount.toFixed(2)}
                       </td>
                     </tr>
@@ -300,10 +301,10 @@ const Dashboard = () => {
         {/* Goals Progress Preview */}
         <div className="glass-panel p-6 rounded-2xl lg:col-span-5 flex flex-col">
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-base font-semibold text-slate-200">Savings Milestones</h3>
+            <h3 className="text-base font-semibold text-slate-800 dark:text-slate-200">Savings Milestones</h3>
             <Link
               to="/goals"
-              className="text-xs font-semibold text-brand-400 hover:text-brand-300 flex items-center gap-1 transition-colors"
+              className="text-xs font-semibold text-brand-500 dark:text-brand-400 hover:text-brand-600 dark:hover:text-brand-300 flex items-center gap-1 transition-colors"
             >
               Manage <ArrowRight className="w-3.5 h-3.5" />
             </Link>
@@ -311,26 +312,26 @@ const Dashboard = () => {
 
           <div className="flex-1 space-y-4 overflow-y-auto">
             {goals.length === 0 ? (
-              <div className="h-32 flex items-center justify-center text-slate-500 text-sm">
+              <div className="h-32 flex items-center justify-center text-slate-400 dark:text-slate-500 text-sm">
                 No active savings goals. Set up a target to track!
               </div>
             ) : (
               goals.slice(0, 3).map((goal) => {
                 const percent = Math.min((goal.savedAmount / goal.targetAmount) * 100, 100);
                 return (
-                  <div key={goal._id} className="p-4 bg-slate-950/40 border border-slate-850 rounded-xl space-y-2">
+                  <div key={goal._id} className="p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200 dark:border-slate-850 rounded-xl space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="font-semibold text-slate-200 text-sm">{goal.title}</span>
-                      <span className="text-xs font-bold text-brand-400">{percent.toFixed(0)}%</span>
+                      <span className="font-semibold text-slate-800 dark:text-slate-200 text-sm">{goal.title}</span>
+                      <span className="text-xs font-bold text-brand-500 dark:text-brand-400">{percent.toFixed(0)}%</span>
                     </div>
                     {/* Progress slider bar */}
-                    <div className="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                    <div className="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
                       <div
                         className="bg-gradient-to-r from-brand-500 to-indigo-500 h-2 rounded-full transition-all duration-500"
                         style={{ width: `${percent}%` }}
                       ></div>
                     </div>
-                    <div className="flex justify-between text-[11px] text-slate-400 font-medium">
+                    <div className="flex justify-between text-[11px] text-slate-500 dark:text-slate-400 font-medium">
                       <span>Saved: ${goal.savedAmount.toLocaleString()}</span>
                       <span>Target: ${goal.targetAmount.toLocaleString()}</span>
                     </div>

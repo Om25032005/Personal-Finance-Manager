@@ -36,6 +36,7 @@ app.use('/api/transactions', require('./routes/transactionRoutes'));
 app.use('/api/reports', require('./routes/reportRoutes'));
 app.use('/api/ai', require('./routes/aiRoutes'));
 app.use('/api/profile', require('./routes/profileRoutes'));
+app.use('/api/analytics', require('./routes/analyticsRoutes'));
 
 // Root route
 app.get('/', (req, res) => {

@@ -5,15 +5,15 @@
 @layer components {
   /* Premium Glassmorphism Preset */
   .glass-panel {
-    @apply bg-slate-900/60 backdrop-blur-md border border-slate-800/80 shadow-xl;
+    @apply bg-white/70 dark:bg-slate-900/60 backdrop-blur-md border border-slate-200 dark:border-slate-800/80 shadow-xl;
   }
   
   .glass-card {
-    @apply bg-slate-900/40 backdrop-blur-sm border border-slate-800/50 hover:border-brand-500/30 transition-all duration-300 rounded-2xl shadow-lg;
+    @apply bg-white/50 dark:bg-slate-900/40 backdrop-blur-sm border border-slate-200 dark:border-slate-800/50 hover:border-brand-500/30 transition-all duration-300 rounded-2xl shadow-md dark:shadow-lg;
   }
 
   .glass-input {
-    @apply bg-slate-950/50 border border-slate-800 text-slate-100 rounded-lg px-4 py-2.5 outline-none focus:border-brand-500 transition-all duration-200 placeholder-slate-500;
+    @apply bg-white dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 rounded-lg px-4 py-2.5 outline-none focus:border-brand-500 transition-all duration-200 placeholder-slate-400 dark:placeholder-slate-500;
   }
 
   .btn-primary {
@@ -21,7 +21,7 @@
   }
 
   .btn-secondary {
-    @apply bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-slate-100 font-medium px-4 py-2.5 rounded-lg transition-all duration-200 active:scale-[0.98] focus:outline-none;
+    @apply bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-700/80 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 font-medium px-4 py-2.5 rounded-lg transition-all duration-200 active:scale-[0.98] focus:outline-none;
   }
 }
 
