@@ -1,166 +1,250 @@
-# WealthFlow - Personal Finance Manager (MERN Stack)
+# WealthFlow – AI-Powered Personal Finance Manager
 
-WealthFlow is a production-ready, feature-rich Personal Finance Manager application designed using the MERN stack (MongoDB, Express, React, Node.js). It supports secure user sessions, budget checks with automated email warning notifications, savings target tracking, Excel and PDF statement exports, and intelligent AI-powered financial advisory recommendations.
+Live Demo: https://personal-finance-manager-kvchryie1.vercel.app/
 
----
+## Overview
 
-## Technical Stack
+WealthFlow is a full-stack MERN-based Personal Finance Management platform that helps users track income, expenses, budgets, savings goals, and financial health through interactive analytics dashboards and AI-powered insights.
 
-* **Frontend**: React, React Router DOM, Axios, Tailwind CSS, Recharts, Lucide Icons
-* **Backend**: Node.js, Express.js, JWT Authentication, bcryptjs, Nodemailer (Email), ExcelJS, PDFKit, Multer
-* **Database**: MongoDB (Mongoose ODM)
-* **AI Engine**: Google Gemini API integration (with local analytical fallback)
+The application provides secure authentication, budget monitoring, transaction management, financial reporting, and intelligent spending recommendations using advanced analytics and Google Gemini AI integration.
 
 ---
 
-## Directory Structure
+## Key Features
 
-```text
-c:/project/Finance Manager/
-├── Backend/
-│   ├── config/             # Database connection setup
-│   ├── controllers/        # Express controllers (auth, transactions, budgets, goals, reports, AI)
-│   ├── middleware/         # Security, upload, and error handling middlewares
-│   ├── models/             # Mongoose schemas (User, Income, Expense, Budget, Goal)
-│   ├── routes/             # REST route mappings
-│   ├── scripts/            # Database seeding scripts for mock data testing
-│   ├── utils/              # PDF, Excel, and Gemini AI compilers, mail transporters
-│   ├── uploads/            # Local directory for profile avatars
-│   ├── .env                # Server configurations file
-│   ├── package.json        # Backend dependencies manifest
-│   └── server.js           # Server application startup
-│
-└── Frontend/
-    ├── public/             # Static public assets
-    ├── src/
-    │   ├── components/     # Layout, Toast, and Protected route wrappers
-    │   ├── context/        # AuthContext and FinanceContext state containers
-    │   ├── pages/          # Application views (Dashboard, Ledger, Inputs, Reports, AI, Settings)
-    │   ├── services/       # Axios API client interceptor definitions
-    │   ├── App.jsx         # Router core mappings
-    │   ├── index.css       # Tailwind imports and premium CSS components
-    │   └── main.jsx        # Client bootloader
-    ├── index.html          # Shell template page
-    ├── package.json        # Client dependencies manifest
-    ├── postcss.config.js   # Style processor configurations
-    ├── tailwind.config.js  # Theme palette layouts
-    └── vite.config.js      # Dev server & reverse proxy mappings
-```
+### Authentication & Security
+
+* JWT-based Authentication
+* Password Hashing using bcryptjs
+* Protected Routes
+* Forgot Password & Reset Password
+* Secure API Access Control
+
+### Financial Management
+
+* Income Tracking
+* Expense Tracking
+* Transaction Categorization
+* Monthly Budget Management
+* Savings Goal Tracking
+* Budget Exceeded Alerts
+
+### Advanced Analytics Dashboard
+
+* Income vs Expense Trends
+* Expense Distribution Analysis
+* Budget Utilization Monitoring
+* Savings Growth Tracking
+* Income Source Breakdown
+* Financial Health Score
+* Goal Progress Visualization
+
+### AI Financial Advisor
+
+* Gemini AI Integration
+* Personalized Spending Insights
+* Savings Recommendations
+* Budget Optimization Suggestions
+* Rule-Based Fallback Engine
+
+### Reports & Exports
+
+* PDF Financial Reports
+* Excel Statement Export
+* Monthly Summary Reports
+
+### Notifications
+
+* Budget Alert Emails
+* Goal Completion Notifications
+* Password Reset Emails
 
 ---
 
-## Installation & Setup
+## Technology Stack
 
-### Prerequisites
-* [Node.js](https://nodejs.org/) (v16.0.0 or higher recommended)
-* [MongoDB](https://www.mongodb.com/try/download/community) running locally or a MongoDB Atlas Connection String
+### Frontend
 
-### 1. Configure Backend environment
-Navigate to the `Backend` directory:
-```bash
-cd Backend
-```
+* React.js
+* React Router DOM
+* Axios
+* Tailwind CSS
+* Recharts
+* Lucide React Icons
 
-Create a `.env` file (refer to the `.env` template already created):
-```ini
-PORT=5000
-NODE_ENV=development
-MONGO_URI=mongodb://127.0.0.1:27017/finance-manager
-JWT_SECRET=super_secret_jwt_key_12345
-JWT_EXPIRE=30d
+### Backend
 
-# Mail Settings (Optional - if left empty, emails will log to the console)
-SMTP_HOST=smtp.mailtrap.io
-SMTP_PORT=2525
-SMTP_USER=your_smtp_username
-SMTP_PASS=your_smtp_password
-SMTP_FROM="Personal Finance Manager" <noreply@financemanager.com>
+* Node.js
+* Express.js
+* JWT Authentication
+* bcryptjs
+* Nodemailer
+* Multer
+* PDFKit
+* ExcelJS
 
-# Frontend URL
-FRONTEND_URL=http://localhost:5173
+### Database
 
-# Gemini API Key (Optional - if left empty, rule-based suggestions are compiled)
-GEMINI_API_KEY=PLACEHOLDER
-```
+* MongoDB Atlas
+* Mongoose ODM
 
-Install backend dependencies and run:
-```bash
-npm install
-npm run dev
-```
+### AI Integration
 
-### 2. Seed Mock Database Data
-To instantly populate the database with a test user (`test@test.com` / `password123`) and a rich 6-month historical suite of income/expense records (perfect for testing dashboard charts):
-```bash
-node scripts/seedAnalytics.js
-```
+* Google Gemini API
+* Custom Financial Analytics Engine
 
-### 3. Configure Frontend
-Navigate to the `Frontend` directory:
-```bash
-cd ../Frontend
-npm install
-npm run dev
-```
-Open [http://localhost:5173](http://localhost:5173) in your browser.
+---
+
+## System Architecture
+
+Frontend (React + Tailwind CSS)
+↓
+REST API (Express.js)
+↓
+Authentication Layer (JWT)
+↓
+Business Logic Layer
+↓
+MongoDB Atlas Database
+
+---
+
+## Core Modules
+
+### User Module
+
+* Registration
+* Login
+* Profile Management
+* Password Recovery
+
+### Income Module
+
+* Add Income
+* Update Income
+* Delete Income
+* Income Source Analysis
+
+### Expense Module
+
+* Expense Tracking
+* Category Management
+* Budget Monitoring
+
+### Budget Module
+
+* Monthly Budgets
+* Utilization Tracking
+* Overspending Alerts
+
+### Savings Goals Module
+
+* Goal Creation
+* Progress Tracking
+* Achievement Notifications
+
+### Analytics Module
+
+* Financial KPIs
+* Expense Distribution
+* Income vs Expense Trends
+* Savings Trends
+* Financial Health Score
+
+### AI Insights Module
+
+* Spending Pattern Detection
+* Personalized Recommendations
+* Financial Optimization Suggestions
+
+---
+
+## Database Design
+
+User
+├── Income
+├── Expense
+├── Budget
+├── Goal
+└── Analytics
+
+Collections:
+
+* Users
+* Incomes
+* Expenses
+* Budgets
+* Goals
 
 ---
 
 ## REST API Endpoints
 
-### 1. Authentication
-* `POST /api/auth/register` - Register a new user
-* `POST /api/auth/login` - Authenticate credentials and receive token
-* `POST /api/auth/forgotpassword` - Request a password reset email link
-* `PUT /api/auth/resetpassword/:resettoken` - Reset password using validation token
-* `GET /api/auth/me` - Fetch details for current authenticated session
+Authentication
 
-### 2. Advanced Analytics
-* `GET /api/analytics/dashboard` - Detailed KPIs overview, percentage deltas, mini trend data arrays, and health ratings
-* `GET /api/analytics/monthly-income-expense` - Combined 6-month historical income vs expense chart coordinates
-* `GET /api/analytics/expense-distribution` - Expense breakdown by category sorted highest to lowest
-* `GET /api/analytics/budget-utilization` - Current month allocated budget vs actual spent amounts
-* `GET /api/analytics/savings-trend` - Savings rate percentages and savings growth over time
-* `GET /api/analytics/income-sources` - Income source allocations
-* `GET /api/analytics/financial-health` - Financial health rating scorecard matrix
+* POST /api/auth/register
+* POST /api/auth/login
+* POST /api/auth/forgotpassword
+* PUT /api/auth/resetpassword/:token
 
-### 3. Income Ledger
-* `GET /api/income` - Retrieve user income logs
-* `POST /api/income` - Log a new income item
-* `PUT /api/income/:id` - Update income record details
-* `DELETE /api/income/:id` - Remove income record from DB
+Analytics
 
-### 4. Expense Ledger
-* `GET /api/expense` - Retrieve user expense logs
-* `POST /api/expense` - Log a new expense (triggers budget threshold comparisons)
-* `PUT /api/expense/:id` - Update expense details
-* `DELETE /api/expense/:id` - Remove expense record
+* GET /api/analytics/dashboard
+* GET /api/analytics/monthly-income-expense
+* GET /api/analytics/expense-distribution
+* GET /api/analytics/budget-utilization
+* GET /api/analytics/savings-trend
+* GET /api/analytics/income-sources
+* GET /api/analytics/financial-health
 
-### 5. Budgets
-* `GET /api/budget` - List active budgets
-* `POST /api/budget` - Create or update monthly category budget
-* `DELETE /api/budget/:id` - Delete budget ceiling
-* `GET /api/budget/status/:month` - Get utilization stats percentage for a month (`YYYY-MM`)
+Finance
 
-### 6. Savings Goals
-* `GET /api/goal` - List active goals
-* `POST /api/goal` - Establish a new target milestones
-* `PUT /api/goal/:id` - Update goal values (triggers congratulations emails if target met)
-* `DELETE /api/goal/:id` - Delete milestone
+* CRUD Operations for Income
+* CRUD Operations for Expenses
+* CRUD Operations for Budgets
+* CRUD Operations for Goals
 
-### 7. Transactions Feed
-* `GET /api/transactions` - Returns unified, paginated, sorted list of income + expenses
-  * *Query Filters*: `type` (all/income/expense), `category`, `startDate`, `endDate`, `search` (description match), `page`, `limit`
+Reports
 
-### 8. Statements & Exports
-* `GET /api/reports/summary/:month` - JSON monthly statistics summary
-* `GET /api/reports/export/pdf/:month` - Stream generated PDF statement download
-* `GET /api/reports/export/excel/:month` - Stream generated Excel spreadsheet download
+* PDF Export
+* Excel Export
 
-### 9. AI Advisor
-* `GET /api/ai/insights/:month` - Compile financial recommendations (analyzes savings-rates, budget breaches, high-expense category weights)
+AI
 
-### 10. Profile
-* `PUT /api/profile` - Update name/email
-* `PUT /api/profile/password` - Update password
-* `POST /api/profile/avatar` - Upload profile image file (`Multer` processed)
+* Financial Insights Generation
+
+---
+
+## Deployment
+
+Frontend:
+
+* Vercel
+
+Backend:
+
+* Render
+
+Database:
+
+* MongoDB Atlas
+
+---
+
+## Resume Description
+
+Developed a production-ready AI-powered Personal Finance Manager using the MERN Stack. Implemented JWT authentication, budget monitoring, savings goal tracking, financial analytics dashboards, PDF/Excel report generation, and Gemini AI-driven financial recommendations. Built responsive user interfaces with React and Tailwind CSS, developed RESTful APIs using Express.js, and integrated MongoDB Atlas for scalable cloud data storage.
+
+---
+
+## Future Enhancements
+
+* Investment Portfolio Tracking
+* Recurring Transactions
+* Net Worth Calculator
+* Expense Forecasting using Machine Learning
+* Multi-Currency Support
+* Mobile Application (React Native)
+
+---
+
