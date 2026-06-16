@@ -14,10 +14,15 @@ connectDB();
 const app = express();
 
 // Enable CORS
-app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://personal-finance-manager-murex.vercel.app"
+    ],
+    credentials: true
+  })
+);
 
 // Body parser
 app.use(express.json());
