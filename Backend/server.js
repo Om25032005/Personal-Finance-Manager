@@ -17,7 +17,8 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://personal-finance-manager-kvchryie1.vercel.app"
+      "https://personal-finance-manager-kvchryie1.vercel.app",
+      "https://personal-finance-manager-murex.vercel.app"
     ],
     credentials: true
   })
